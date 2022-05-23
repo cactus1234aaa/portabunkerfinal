@@ -1,40 +1,33 @@
-﻿<!DOCTYPE html>
-<html>
-<body>
 
 
-<input id="myInput" type="text" placeholder="enter proccy link" />
-<button id="confirm">Confirm</button>
-<br>
-<p>type “https://rb.gy/xjamxf” in for gba games</p>
-<p id='replace-me'> confirmed link will appear here</p>
-<button id="launch">launch</button>
+<body onload="myFunction()">
 <script>
-const input = document.getElementById('myInput');
-const confirmb = document.getElementById('confirm');
-const replace = document.getElementById('replace-me');
-const launch = document.getElementById('launch');
+
+var urlObj = new window.URL(window.location.href);
+var url = "https://cactus1234aaa.github.io/portabunkerfinal";
+ 
+if (url) {
+   var win;
+ 
+  function myFunction() {
+
+       if (win) {
+           win.focus();
+       } else {
+           win = window.open();
+           win.document.body.style.margin = '0';
+           win.document.body.style.height = '100vh';
+           var iframe = win.document.createElement('iframe');
+           iframe.style.border = 'none';
+           iframe.style.width = '100%';
+           iframe.style.height = '100%';
+           iframe.style.margin = '0';
+           iframe.src = url;
+           win.document.body.appendChild(iframe);
+       }
+   };
+}
 
 
-confirmb.addEventListener('click', () => {
-    replace.innerText = input.value;
-})
-launch.addEventListener('click', () => {
-    const win = window.open('about:blank', '_blank');
-    const iframe = win.document.createElement('iframe');
-    const stl = iframe.style;
-    stl.border = stl.outline = 'none';
-    stl.width = '100vw';
-    stl.height = '100vh';
-    stl.position = 'fixed';
-    stl.left = stl.right = stl.top = stl.bottom = '0';
-    iframe.src = input.value;
-    win.document.body.appendChild(iframe);
-    launch.style.background = '#008b8b';
-    launch.innerHTML = "launched";
-})
 </script>
-
-
 </body>
-</html>
